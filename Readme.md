@@ -1,11 +1,11 @@
 # Search for Media Libraries
 
 This project enables search functionality for Media Libraries in Kentico EMS. It allows searching through binary files.
-See full article at 
+See full article at https://devnet.kentico.com/articles/search-for-media-libraries
 
 ## Getting Started
 
-Start with reading following article on DevNet:
+Start with reading following article on DevNet: https://devnet.kentico.com/articles/search-for-media-libraries
 
 Following instructions will get you a copy of the code files needed to get the search up and running on your local machine for development and testing purposes.
 
