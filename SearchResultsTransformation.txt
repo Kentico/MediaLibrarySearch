@@ -1,0 +1,30 @@
+{%
+imgUrl = GetAbsoluteUrl(GetSearchValue("_customimage"));
+title = GetSearchValue("_customtitle");
+libraryName = GetSearchValue("LibraryDisplayName");
+""
+%}
+<li style="overflow:hidden;padding:15px{% if (Math.Modulo(1+DataItemIndex, 2) == 0){ ";background:#f5f5f5" }else{ "" } #%}">
+  <h3 style="margin-bottom:5px"><a href="{% imgUrl %}" title="{% title %}" target="_blank">{% title %}</a>
+    <small>
+      {% GetSearchValue("FileMimeType") %}, 
+      {% if (GetSearchValue("FileImageWidth")){ GetSearchValue("FileImageWidth") + "x" + GetSearchValue("FileImageHeight") + "px, " } else { "" } #%}
+      {% Math.Ceiling(GetSearchValue("FileSize")/1024) #%} kB
+    </small>
+  </h3>
+  <div style="display:table-cell;vertical-align:top">
+    <a href="{% imgUrl %}" title="{% title %}" target="_blank" style="float:left;margin-right:15px">
+      <img src="{% GetAbsoluteUrl("~/getmedia/" + GetSearchValue("FileGUID") + "/img?maxsidesize=200") %}" alt="{% GetSearchValue("_customtitle") %}" />
+    </a>
+  </div>
+  <div style="display:table-cell;vertical-align:top">
+    {% if (GetSearchValue("FileDescription") != ""){ %}
+    <p style="margin-bottom: 5px">{% GetSearchValue("FileDescription") %}</p>
+    {% } #%}
+    {% if (GetSearchValue("Keywords") != ""){ %}
+    <p style="margin-bottom: 5px"><strong>Keywords</strong><br />{% GetSearchValue("Keywords") %}</p>
+    {% } #%}
+    <p style="margin-bottom: 5px"><strong>Gallery</strong><br /><a href="{% UIContext.GetElementUrl("CMS.MediaLibrary", "EditMediaLibrary", false, GetSearchValue("FileLibraryID"), null) #%}" title="{% libraryName %}">{% libraryName %}</a></p>
+    <p style="margin-bottom: 5px"><strong>Path</strong><br />{% GetSearchValue("LibraryFolder") + "/" + GetSearchValue("FilePath") %}</p>
+  </div>
+</li>
