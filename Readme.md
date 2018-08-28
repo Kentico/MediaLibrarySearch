@@ -31,3 +31,4 @@ And then
 2) Register scheduled task SearchTaskProcessor
 3) Create UI and use SearchResultsTransformation.txt
 ```
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/MediaLibrarySearch?pixel)
