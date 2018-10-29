@@ -39,7 +39,7 @@ namespace MediaLibrarySearchIndex
             contentBuilder.Append(keywords + SEPARATOR);
 
             CMS.Search.SearchHelper.AddGeneralField(doc, SearchFieldsConstants.CONTENT, HTMLHelper.HtmlToPlainText(contentBuilder.ToString()), false, true);
-            CMS.Search.SearchHelper.AddGeneralField(doc, "Keywords", keywords, true, true);
+            CMS.Search.SearchHelper.AddGeneralField(doc, "FileKeywords", keywords, true, true);
 
             CMS.Search.SearchHelper.AddGeneralField(doc, SearchFieldsConstants.CUSTOM_TITLE, fileInfo.FileName, true, false, true);
             CMS.Search.SearchHelper.AddGeneralField(doc, SearchFieldsConstants.CUSTOM_DATE, fileInfo.FileCreatedWhen, true, false);
@@ -66,7 +66,7 @@ namespace MediaLibrarySearchIndex
         }
         private static string GetContent(MediaFileInfo mfi)
         {
-            if (mfi != null)
+            if (mfi == null)
                 return string.Empty;
 
             var content = new StringBuilder();
